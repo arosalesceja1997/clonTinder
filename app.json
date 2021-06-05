@@ -1,0 +1,12 @@
+{
+  "name": "appFutbol",
+  "displayName": "appFutbol",
+  "expo": {
+    "name": "appFutbol",
+    "slug": "appFutbol",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
