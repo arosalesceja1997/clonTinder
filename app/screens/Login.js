@@ -1,20 +1,75 @@
-import * as React from "react";
-import { View, Text, Button } from "react-native";
+import React, { useState, Component, createRef } from "react";
+import {
+  TextInput,
+  Button,
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
+
+// Estilos
+import stylesLogin from "../assets/styles/Login";
+
+const RenderLogin = ({ navigation }) => {
+  const [text, setText] = useState(null);
+  const [pass, setPass] = useState(null);
+
+  return (
+    <View style={{ backgroundColor: "white" }}>
+      <View style={stylesLogin.flex}>
+        <Icon name="user" size={25} style={stylesLogin.mRight} />
+        <TextInput
+          style={stylesLogin.inputs}
+          placeholder="Correo"
+          onChangeText={(text) => setText(text)}
+          defaultValue={text}
+        />
+      </View>
+
+      <View style={stylesLogin.flex}>
+        <Icon name="lock" size={25} style={stylesLogin.mRight} />
+        <TextInput
+          style={stylesLogin.inputs}
+          placeholder="Contraseña"
+          onChangeText={(text) => setPass(text)}
+          defaultValue={pass}
+          secureTextEntry={true}
+        />
+      </View>
+
+      <View style={{ marginTop: 25, alignItems: "center" }}>
+        <View style={{ marginBottom: 20 }}>
+          <Text
+            style={stylesLogin.url}
+            onPress={() => navigation.navigate("Recover")}
+          >
+            Olvide la Contraseña?
+          </Text>
+        </View>
+
+        <View>
+          <TouchableOpacity
+            onPress={() => console.log("Inicio de sesion")}
+            style={stylesLogin.button}
+          >
+            <Text style={{ color: "#ffffff" }}>INICIAR</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={{ marginTop: 20 }}>
+          <Text>Registrar me</Text>
+        </View>
+      </View>
+    </View>
+  );
+};
 
 function Login({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Details Screen</Text>
-      <Button title="Go back" onPress={() => navigation.goBack()} />
-      <Button
-        title="Go back to first screen in stack"
-        onPress={() => navigation.popToTop()}
-      />
-      <Button
-        title="Go to Details... again"
-        onPress={() => navigation.push("Login")}
-      />
-      <Button title="Go to Home" onPress={() => navigation.navigate("Home")} />
+    <View style={stylesLogin.container}>
+      <RenderLogin navigation={navigation} />
     </View>
   );
 }
