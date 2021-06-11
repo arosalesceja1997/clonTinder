@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { Formik, useFormik } from "formik";
 import { Form, Item, Label, InputUI, ButtonUI, Picker } from "native-base";
-import { Input, Button, Text } from "react-native-elements";
+import { Input, Button, Text, ButtonGroup } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome5";
 // import { createIconSet } from "react-native-vector-icons";
 // const Icon = createIconSet();
@@ -349,7 +349,9 @@ const RenderCreateMatch = () => {
 
         <View style={(styles.flex, styles.button)}>
           <Button
-            style={{ marginBottom: 50 }}
+            buttonStyle={{
+              backgroundColor: "red",
+            }}
             icon={<Icon name="arrow-right" size={20} color="white" />}
             iconRight
             title="Agregar "
@@ -357,6 +359,94 @@ const RenderCreateMatch = () => {
         </View>
       </View>
     </ScrollView>
+  );
+};
+
+const RenderCreateTeam = () => {
+  const { values, isSubmitting, setFieldValue } = useFormik({
+    initialValues: {
+      cancha: "",
+      datosCancha: "",
+      equipo: "",
+      datosEquipo: "",
+      horario: "",
+      fecha: "",
+    },
+    onSubmit: (values) => {},
+  });
+
+  const [text, setText] = React.useState(null);
+  const [pass, setPass] = React.useState(null);
+
+  return (
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={{ fontSize: 30 }}>Crear equipo</Text>
+
+        <View style={styles.flex}>
+          <Input
+            placeholder="Nombre del equipo"
+            leftIcon={<Icon name="users" size={24} color="gray" />}
+            onChangeText={(text) => setText(text)}
+            defaultValue={text}
+          />
+        </View>
+
+        <View style={styles.flex}>
+          <Input
+            placeholder="Cantidad de integreantes"
+            leftIcon={<Icon name="list-ol" size={24} color="gray" />}
+            onChangeText={(text) => setText(text)}
+            defaultValue={text}
+          />
+        </View>
+
+        <View style={styles.flex}>
+          <Input
+            placeholder="Cantidad de integreantes"
+            leftIcon={<Icon name="clock" size={24} color="gray" />}
+            onChangeText={(text) => setText(text)}
+            defaultValue={text}
+          />
+        </View>
+
+        <View style={(styles.flex, styles.button)}>
+          <Button
+            buttonStyle={{
+              backgroundColor: "red",
+            }}
+            icon={<Icon name="plus-circle" size={20} color="white" />}
+            iconRight
+            title="Agregar equipo "
+          />
+        </View>
+      </View>
+    </ScrollView>
+  );
+};
+
+const App = () => {
+  const [button, setButton] = React.useState(0);
+  const buttons = ["Crear partido", "Crear equipo", "Crear cancha"];
+
+  return (
+    <React.Fragment>
+      <View>
+        <ButtonGroup
+          onPress={(e) => setButton(e)}
+          selectedIndex={button}
+          buttons={buttons}
+          containerStyle={{ height: 100 }}
+        />
+      </View>
+      {button == 0 ? (
+        <RenderCreateMatch></RenderCreateMatch>
+      ) : button == 1 ? (
+        <RenderCreateTeam></RenderCreateTeam>
+      ) : (
+        <Text>Pagina 3</Text>
+      )}
+    </React.Fragment>
   );
 };
 
@@ -409,6 +499,7 @@ const styles = StyleSheet.create({
   txtCenter: {
     textAlign: "center",
   },
+  containerButtons: {},
 });
 
-export default RenderCreateMatch;
+export default App;

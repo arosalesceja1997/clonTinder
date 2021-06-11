@@ -64,6 +64,9 @@ const RenderLogin = ({ navigation }) => {
         </View>
 
         <Button
+          buttonStyle={{
+            backgroundColor: "red",
+          }}
           icon={<Icon name="arrow-right" size={20} color="white" />}
           iconRight
           title="Ingresar "
