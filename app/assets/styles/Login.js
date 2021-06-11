@@ -7,7 +7,7 @@ const stylesLogin = StyleSheet.create({
     justifyContent: "center",
     paddingRight: 5,
     paddingLeft: 5,
-    paddingTop: 50,
+    paddingTop: 20,
     backgroundColor: "white",
   },
   title: {
@@ -66,7 +66,7 @@ const stylesLogin = StyleSheet.create({
   },
   url: {
     // width: "50%",
-    color: "blue",
+    color: "#3a7896",
   },
   wh50: {
     // width: "50%",

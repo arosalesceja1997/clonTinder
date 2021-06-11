@@ -6,7 +6,7 @@ import {
   ScrollView,
   FlatList,
 } from "react-native";
-import { Input, Button, Text } from "react-native-elements";
+import { Input, Button, Text, Avatar } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 // Estilos
@@ -19,13 +19,19 @@ const RenderLogin = ({ navigation }) => {
   return (
     <ScrollView>
       <View style={stylesLogin.container}>
-        <Text h4 style={stylesLogin.title}>
-          Iniciar sesión
-        </Text>
+        <Avatar
+          rounded
+          size="large"
+          icon={{ name: "user", type: "font-awesome" }}
+          containerStyle={{
+            backgroundColor: "red",
+          }}
+        />
+
         <View style={stylesLogin.flex}>
           <Input
             placeholder="Correo"
-            leftIcon={<Icon name="user" size={24} color="gray" />}
+            leftIcon={<Icon name="user" size={24} color="#339abf" />}
             onChangeText={(text) => setText(text)}
             defaultValue={text}
           />
@@ -34,7 +40,7 @@ const RenderLogin = ({ navigation }) => {
         <View style={stylesLogin.flex}>
           <Input
             placeholder="Contraseña"
-            leftIcon={<Icon name="lock" size={24} color="gray" />}
+            leftIcon={<Icon name="lock" size={24} color="#339abf" />}
             onChangeText={(text) => setText(text)}
             defaultValue={text}
             secureTextEntry={true}
