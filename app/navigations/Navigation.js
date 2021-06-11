@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/Home";
 import LoginScreen from "../screens/Login";
 import RecoverPasswordScreen from "../screens/RecoverPassword";
+import RegisterScreen from "../screens/Register";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -25,8 +26,9 @@ function App() {
       <Stack.Navigator>
         {/* <Stack.Screen name="Home" component={HomeScreen} /> */}
         <Stack.Screen name="Login" component={TabsNavigators} />
-        <Stack.Screen name="Home" component={TabsNavigators} />
+        <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Recover" component={RecoverPasswordScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

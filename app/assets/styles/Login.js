@@ -5,12 +5,15 @@ const stylesLogin = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    paddingRight: 5,
+    paddingLeft: 5,
+    paddingTop: 50,
     backgroundColor: "white",
   },
   title: {
     fontSize: 20,
     fontWeight: "bold",
-    marginTop: -10,
+    textAlign: "center",
   },
   separator: {
     marginVertical: 30,
@@ -24,7 +27,6 @@ const stylesLogin = StyleSheet.create({
     borderWidth: 1,
     borderColor: "thistle",
     borderRadius: 30,
-    backgroundColor: "white",
     padding: 5,
     // borderWidth: 2,
     // borderColor: '#dadae8',
@@ -36,7 +38,6 @@ const stylesLogin = StyleSheet.create({
     flexWrap: "wrap",
     marginTop: "5%",
     width: "100%",
-    backgroundColor: "white",
   },
   mRight: {
     marginRight: "10%",
@@ -44,8 +45,6 @@ const stylesLogin = StyleSheet.create({
   button: {
     alignItems: "center",
     justifyContent: "center",
-    // backgroundColor: "#1e90ff",
-    backgroundColor: "#21e124",
     padding: 10,
     borderRadius: 30,
     width: 250,
@@ -57,8 +56,26 @@ const stylesLogin = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "space-between",
   },
+  containerLinks: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    // paddingVertical: 5,
+    marginBottom: 25,
+  },
   url: {
+    // width: "50%",
     color: "blue",
+  },
+  wh50: {
+    // width: "50%",
+  },
+  txtLeft: {
+    textAlign: "left",
+  },
+  txtRight: {
+    textAlign: "right",
   },
 });
 

@@ -1,12 +1,12 @@
 import React, { useState, Component, createRef } from "react";
 import {
   TextInput,
-  Button,
   View,
-  Text,
   TouchableOpacity,
   ScrollView,
+  FlatList,
 } from "react-native";
+import { Input, Button, Text } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 // Estilos
@@ -17,52 +17,60 @@ const RenderLogin = ({ navigation }) => {
   const [pass, setPass] = useState(null);
 
   return (
-    <View style={{ backgroundColor: "white" }}>
-      <View style={stylesLogin.flex}>
-        <Icon name="user" size={25} style={stylesLogin.mRight} />
-        <TextInput
-          style={stylesLogin.inputs}
-          placeholder="Correo"
-          onChangeText={(text) => setText(text)}
-          defaultValue={text}
+    <ScrollView>
+      <View style={stylesLogin.container}>
+        <Text h4 style={stylesLogin.title}>
+          Iniciar sesión
+        </Text>
+        <View style={stylesLogin.flex}>
+          <Input
+            placeholder="Correo"
+            leftIcon={<Icon name="user" size={24} color="gray" />}
+            onChangeText={(text) => setText(text)}
+            defaultValue={text}
+          />
+        </View>
+
+        <View style={stylesLogin.flex}>
+          <Input
+            placeholder="Contraseña"
+            leftIcon={<Icon name="lock" size={24} color="gray" />}
+            onChangeText={(text) => setText(text)}
+            defaultValue={text}
+            secureTextEntry={true}
+          />
+        </View>
+
+        <View style={stylesLogin.flex}>
+          <View style={stylesLogin.containerLinks}>
+            <View style={stylesLogin.wh50}>
+              <Text
+                style={stylesLogin.url}
+                onPress={() => navigation.navigate("Recover")}
+              >
+                Olvide la Contraseña?
+              </Text>
+            </View>
+
+            <View style={stylesLogin.wh50}>
+              <Text
+                style={stylesLogin.url}
+                onPress={() => navigation.navigate("Register")}
+              >
+                Registrar me
+              </Text>
+            </View>
+          </View>
+        </View>
+
+        <Button
+          icon={<Icon name="arrow-right" size={20} color="white" />}
+          iconRight
+          title="Ingresar "
+          onPress={() => navigation.navigate("Home")}
         />
       </View>
-
-      <View style={stylesLogin.flex}>
-        <Icon name="lock" size={25} style={stylesLogin.mRight} />
-        <TextInput
-          style={stylesLogin.inputs}
-          placeholder="Contraseña"
-          onChangeText={(text) => setPass(text)}
-          defaultValue={pass}
-          secureTextEntry={true}
-        />
-      </View>
-
-      <View style={{ marginTop: 25, alignItems: "center" }}>
-        <View style={{ marginBottom: 20 }}>
-          <Text
-            style={stylesLogin.url}
-            onPress={() => navigation.navigate("Recover")}
-          >
-            Olvide la Contraseña?
-          </Text>
-        </View>
-
-        <View>
-          <TouchableOpacity
-            onPress={() => console.log("Inicio de sesion")}
-            style={stylesLogin.button}
-          >
-            <Text style={{ color: "#ffffff" }}>INICIAR</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={{ marginTop: 20 }}>
-          <Text>Registrar me</Text>
-        </View>
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 
