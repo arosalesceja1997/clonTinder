@@ -12,32 +12,9 @@ import { Formik, useFormik } from "formik";
 import { Form, Item, Label, InputUI, ButtonUI, Picker } from "native-base";
 import { Input, Button, Text, ButtonGroup } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome5";
-// import { createIconSet } from "react-native-vector-icons";
-// const Icon = createIconSet();
 
-function HomeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home Screen</Text>
-      {/* <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate("Login")}
-      /> */}
-    </View>
-  );
-
-  // const [count, setCount] = React.useState(0);
-
-  // React.useLayoutEffect(() => {
-  //   navigation.setOptions({
-  //     headerRight: () => (
-  //       <Button onPress={() => setCount((c) => c + 1)} title="Update count" />
-  //     ),
-  //   });
-  // }, [navigation]);
-
-  // return <Text>Count: {count}</Text>;
-}
+// Estilos
+import stylesHome from "../assets/styles/Home";
 
 function PerfilScreen({ navigation }) {
   // const {fontsLoader, setfontLoader } = useState(false);
@@ -53,226 +30,33 @@ function PerfilScreen({ navigation }) {
     onSubmit: (values) => {},
   });
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.datos}>
-        <SafeAreaView>
-          <ScrollView>
-            <View>
-              <View style={styles.media}>
-                {/* <Avatar.Image
-                  size={150}
-                  source={require("../assets/images/futbol.jpg")}
-                /> */}
-                <View style={styles.separator}></View>
-                <View style={styles.bottMedia}>
-                  <TouchableOpacity
-                    onPress={() => console.log("Editar imagen")}
-                    style={styles.button}
-                  >
-                    <Text style={{ color: "white" }}>SUBE ARCHIVOS</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
-            <View>
-              <Text style={styles.txtInput}>Smart photos</Text>
-              <TextInput
-                style={styles.texto}
-                placeholder={"Smart Photos analiza tus fotos de perfil"}
-              ></TextInput>
-
-              <Text style={styles.texto}>Acerca de ti</Text>
-              <TextInput
-                style={styles.txtInput}
-                placeholder={"Escribe acerca de ti"}
-              ></TextInput>
-
-              <Text style={styles.texto}>Intereses</Text>
-              <TextInput
-                style={styles.txtInput}
-                placeholder={"Agregar interese"}
-              ></TextInput>
-
-              <Text style={styles.texto}>Puesto</Text>
-              <TextInput
-                style={styles.txtInput}
-                placeholder={"Añadir Puesto"}
-              ></TextInput>
-
-              <Text style={styles.texto}>Compañia</Text>
-              <TextInput
-                style={styles.txtInput}
-                placeholder={"Añadir compañia"}
-              ></TextInput>
-
-              <Text style={styles.texto}>Escuela</Text>
-              <TextInput
-                style={styles.txtInput}
-                placeholder={"Escuela"}
-              ></TextInput>
-
-              <Text style={styles.texto}>Vives en</Text>
-              <TextInput
-                style={styles.txtInput}
-                placeholder={"Añadir ciudad"}
-              ></TextInput>
-
-              <Text style={styles.texto}>Mostrar mis fotos de instagram</Text>
-              <TextInput
-                style={styles.txtInput}
-                placeholder={"Conectar con instagram"}
-              ></TextInput>
-
-              <Text style={styles.texto}>Mi himno</Text>
-              <TextInput
-                style={styles.txtInput}
-                placeholder={"Elige un himno"}
-              ></TextInput>
-              <Text style={styles.subtexto}>
-                Controla como compartes tu Himno de Spotify
-              </Text>
-
-              <Text style={styles.texto}>
-                Mis artistas favoritos en Spotify
-              </Text>
-              <TextInput
-                style={styles.txtInput}
-                placeholder={"Conectar con spotify"}
-              ></TextInput>
-
-              <Text style={styles.texto}>Soy</Text>
-              <TextInput
-                style={styles.txtInput}
-                placeholder={"Añade genero"}
-              ></TextInput>
-
-              <Text style={styles.texto}>Orientacion Sexual</Text>
-              <TextInput
-                style={styles.txtInput}
-                placeholder={"Añade Horienrientacion"}
-              ></TextInput>
-
-              <Text style={styles.texto}>Controla tu perfil</Text>
-              <TextInput
-                style={styles.txtInput}
-                placeholder={"No mostrar mi edad"}
-              ></TextInput>
-              <TextInput
-                style={styles.txtInput}
-                placeholder={"Hacer mi distancia invisible"}
-              ></TextInput>
-
-              <Text style={styles.texto}></Text>
-              <Text style={styles.texto}></Text>
-            </View>
-            <View>
-              <View>
-                {/* <View style={{ backgroundColor: "lightblue" }}>
-                    <Text> Crear Cancha </Text>
-                    <TextInput style={styles.txtInput} 
-                    placeholder={'Typo'}
-                    ></TextInput>
-                    <TextInput style={styles.txtInput} 
-                    placeholder={'Datos adicionales de la cancha'}
-                    ></TextInput>
-                    <View  style={{height: 300, backgroundColor: "red"}}>
-                      <Image
-                      source={require("../assets/images/cancha.jpg")}
-                      style={{resizeMode: 'contain', width: "70%" }}
-                      />
-                    </View>
-                    <View style={styles.bottMedia}>
-                        <TouchableOpacity    
-                        onPress={() => console.log("Editar imagen")}
-                        style={styles.button}>
-                            <Text style={{color: "white"}}>GUARDAR</Text>
-                        </TouchableOpacity>
-                      </View>
-                    <Text></Text>
-                  </View> */}
-              </View>
-
-              <View style={{ marginTop: 50, backgroundColor: "lightblue" }}>
-                <Text style={{ fontSize: 30 }}>Crear cancha</Text>
-                <Form>
-                  <Item floatingLabel>
-                    <Label>Nombre o Typo de cancha</Label>
-                    <Input
-                      value={values.cancha}
-                      onChangeText={(text) => setFieldValue("cancha", text)}
-                    />
-                  </Item>
-                  <Item floatingLabel>
-                    <Label>Datos adicionales</Label>
-                    <Input
-                      value={values.datosCancha}
-                      onChangeText={(text) =>
-                        setFieldValue("datosCancha", text)
-                      }
-                    />
-                  </Item>
-                </Form>
-                <View style={{ height: 300, backgroundColor: "red" }}>
-                  <Image
-                    source={require("../assets/images/cancha.jpg")}
-                    style={{ resizeMode: "contain", width: "70%" }}
-                  />
-                </View>
-                <Button>
-                  <Text>GUARDAR</Text>
-                </Button>
-              </View>
-
-              <View>
-                {/* <View style={{ marginTop: 50, backgroundColor: "lightblue" }}>
-                      <Text> Crear Equipo </Text>
-                      <TextInput style={styles.txtInput} 
-                      placeholder={'Nombre del equipo'}
-                      ></TextInput>
-                      <TextInput style={styles.txtInput} 
-                      placeholder={'Descripcion del uniforme'}
-                      ></TextInput>
-                      <View style={styles.bottMedia}>
-                          <TouchableOpacity    
-                          onPress={() => console.log("Editar imagen")}
-                          style={styles.button}>
-                              <Text style={{color: "white"}}>GUARDAR</Text>
-                          </TouchableOpacity>
-                        </View>
-                    </View> */}
-              </View>
-
-              <View style={{ marginTop: 50, backgroundColor: "lightblue" }}>
-                <Form>
-                  <Text style={{ fontSize: 30 }}>Crear equipo</Text>
-                  <Item floatingLabel>
-                    <Label>Nombre del equipo</Label>
-                    <Input
-                      value={values.equipo}
-                      onChangeText={(text) => setFieldValue("equipo", text)}
-                    />
-                  </Item>
-                  <Item floatingLabel>
-                    <Label>Descripcion del uniforme</Label>
-                    <Input
-                      value={values.datosEquipo}
-                      onChangeText={(text) =>
-                        setFieldValue("datosEquipo", text)
-                      }
-                    />
-                  </Item>
-                  <Button>
-                    <Text>GUARDAR</Text>
-                  </Button>
-                </Form>
-              </View>
-            </View>
-          </ScrollView>
-        </SafeAreaView>
-      </View>
-    </View>
-  );
+  // return (
+  //   <View style={styles.container}>
+  //     <View style={styles.datos}>
+  //       <SafeAreaView>
+  //         <ScrollView>
+  //           <View>
+  //             <View style={styles.media}>
+  //               <Avatar.Image
+  //                 size={150}
+  //                 source={require("../assets/images/futbol.jpg")}
+  //               />
+  //               <View style={styles.separator}></View>
+  //               <View style={styles.bottMedia}>
+  //                 <TouchableOpacity
+  //                   onPress={() => console.log("Editar imagen")}
+  //                   style={styles.button}
+  //                 >
+  //                   <Text style={{ color: "white" }}>SUBE ARCHIVOS</Text>
+  //                 </TouchableOpacity>
+  //               </View>
+  //             </View>
+  //           </View>
+  //         </ScrollView>
+  //       </SafeAreaView>
+  //     </View>
+  //   </View>
+  // );
 }
 
 const RenderCreateMatch = () => {
@@ -293,10 +77,10 @@ const RenderCreateMatch = () => {
 
   return (
     <ScrollView>
-      <View style={styles.container}>
+      <View style={stylesHome.container}>
         <Text style={{ fontSize: 30 }}>Crear partido</Text>
 
-        <View style={styles.flex}>
+        <View style={stylesHome.flex}>
           <Input
             placeholder="Cancha"
             leftIcon={<Icon name="futbol" size={24} color="gray" />}
@@ -305,8 +89,8 @@ const RenderCreateMatch = () => {
           />
         </View>
 
-        <View style={styles.containerTeams}>
-          <View style={styles.flex}>
+        <View style={stylesHome.containerTeams}>
+          <View style={stylesHome.flex}>
             <Input
               placeholder="Equipo 1"
               leftIcon={<Icon name="users" size={24} color="gray" />}
@@ -315,11 +99,11 @@ const RenderCreateMatch = () => {
             />
           </View>
 
-          <Text h4 style={styles.txtCenter}>
+          <Text h4 style={stylesHome.txtCenter}>
             VS
           </Text>
 
-          <View style={styles.flex}>
+          <View style={stylesHome.flex}>
             <Input
               placeholder="Equipo 2"
               leftIcon={<Icon name="users" size={24} color="gray" />}
@@ -329,7 +113,7 @@ const RenderCreateMatch = () => {
           </View>
         </View>
 
-        <View style={styles.flex}>
+        <View style={stylesHome.flex}>
           <Input
             placeholder="Fecha"
             leftIcon={<Icon name="table" size={24} color="gray" />}
@@ -338,7 +122,7 @@ const RenderCreateMatch = () => {
           />
         </View>
 
-        <View style={styles.flex}>
+        <View style={stylesHome.flex}>
           <Input
             placeholder="Hora"
             leftIcon={<Icon name="clock" size={24} color="gray" />}
@@ -347,7 +131,7 @@ const RenderCreateMatch = () => {
           />
         </View>
 
-        <View style={(styles.flex, styles.button)}>
+        <View style={(stylesHome.flex, stylesHome.button)}>
           <Button
             buttonStyle={{
               backgroundColor: "red",
@@ -380,10 +164,10 @@ const RenderCreateTeam = () => {
 
   return (
     <ScrollView>
-      <View style={styles.container}>
+      <View style={stylesHome.container}>
         <Text style={{ fontSize: 30 }}>Crear equipo</Text>
 
-        <View style={styles.flex}>
+        <View style={stylesHome.flex}>
           <Input
             placeholder="Nombre del equipo"
             leftIcon={<Icon name="users" size={24} color="gray" />}
@@ -392,7 +176,7 @@ const RenderCreateTeam = () => {
           />
         </View>
 
-        <View style={styles.flex}>
+        <View style={stylesHome.flex}>
           <Input
             placeholder="Cantidad de integreantes"
             leftIcon={<Icon name="list-ol" size={24} color="gray" />}
@@ -401,7 +185,7 @@ const RenderCreateTeam = () => {
           />
         </View>
 
-        <View style={styles.flex}>
+        <View style={stylesHome.flex}>
           <Input
             placeholder="Cantidad de integreantes"
             leftIcon={<Icon name="clock" size={24} color="gray" />}
@@ -410,7 +194,7 @@ const RenderCreateTeam = () => {
           />
         </View>
 
-        <View style={(styles.flex, styles.button)}>
+        <View style={(stylesHome.flex, stylesHome.button)}>
           <Button
             buttonStyle={{
               backgroundColor: "red",
@@ -425,9 +209,105 @@ const RenderCreateTeam = () => {
   );
 };
 
+const RenderEditAccount = () => {
+  return (
+    <ScrollView>
+      <View>
+        <Text style={stylesHome.txtInput}>Smart photos</Text>
+        <TextInput
+          style={stylesHome.texto}
+          placeholder={"Smart Photos analiza tus fotos de perfil"}
+        ></TextInput>
+
+        <Text style={stylesHome.texto}>Acerca de ti</Text>
+        <TextInput
+          style={stylesHome.txtInput}
+          placeholder={"Escribe acerca de ti"}
+        ></TextInput>
+
+        <Text style={stylesHome.texto}>Intereses</Text>
+        <TextInput
+          style={stylesHome.txtInput}
+          placeholder={"Agregar interese"}
+        ></TextInput>
+
+        <Text style={stylesHome.texto}>Puesto</Text>
+        <TextInput
+          style={stylesHome.txtInput}
+          placeholder={"Añadir Puesto"}
+        ></TextInput>
+
+        <Text style={stylesHome.texto}>Compañia</Text>
+        <TextInput
+          style={stylesHome.txtInput}
+          placeholder={"Añadir compañia"}
+        ></TextInput>
+
+        <Text style={stylesHome.texto}>Escuela</Text>
+        <TextInput
+          style={stylesHome.txtInput}
+          placeholder={"Escuela"}
+        ></TextInput>
+
+        <Text style={stylesHome.texto}>Vives en</Text>
+        <TextInput
+          style={stylesHome.txtInput}
+          placeholder={"Añadir ciudad"}
+        ></TextInput>
+
+        <Text style={stylesHome.texto}>Mostrar mis fotos de instagram</Text>
+        <TextInput
+          style={stylesHome.txtInput}
+          placeholder={"Conectar con instagram"}
+        ></TextInput>
+
+        <Text style={stylesHome.texto}>Mi himno</Text>
+        <TextInput
+          style={stylesHome.txtInput}
+          placeholder={"Elige un himno"}
+        ></TextInput>
+        <Text style={stylesHome.subtexto}>
+          Controla como compartes tu Himno de Spotify
+        </Text>
+
+        <Text style={stylesHome.texto}>Mis artistas favoritos en Spotify</Text>
+        <TextInput
+          style={stylesHome.txtInput}
+          placeholder={"Conectar con spotify"}
+        ></TextInput>
+
+        <Text style={stylesHome.texto}>Soy</Text>
+        <TextInput
+          style={stylesHome.txtInput}
+          placeholder={"Añade genero"}
+        ></TextInput>
+
+        <Text style={stylesHome.texto}>Orientacion Sexual</Text>
+        <TextInput
+          style={stylesHome.txtInput}
+          placeholder={"Añade Horienrientacion"}
+        ></TextInput>
+
+        <Text style={stylesHome.texto}>Controla tu perfil</Text>
+        <TextInput
+          style={stylesHome.txtInput}
+          placeholder={"No mostrar mi edad"}
+        ></TextInput>
+        <TextInput
+          style={stylesHome.txtInput}
+          placeholder={"Hacer mi distancia invisible"}
+        ></TextInput>
+
+        <Text style={stylesHome.texto}></Text>
+        <Text style={stylesHome.texto}></Text>
+      </View>
+    </ScrollView>
+  );
+};
+
 const App = () => {
   const [button, setButton] = React.useState(0);
-  const buttons = ["Crear partido", "Crear equipo", "Crear cancha"];
+  const buttons = ["Crear partido", "Crear equipo", "Crear cancha", "Editar"];
 
   return (
     <React.Fragment>
@@ -443,63 +323,13 @@ const App = () => {
         <RenderCreateMatch></RenderCreateMatch>
       ) : button == 1 ? (
         <RenderCreateTeam></RenderCreateTeam>
+      ) : button == 2 ? (
+        <RenderEditAccount></RenderEditAccount>
       ) : (
-        <Text>Pagina 3</Text>
+        <Text>Pagina 4</Text>
       )}
     </React.Fragment>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingRight: 10,
-    paddingLeft: 5,
-    paddingTop: 50,
-    // width: "100%",
-    backgroundColor: "white",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  flex: {
-    flex: 0,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    marginTop: "2%",
-    width: "100%",
-  },
-  form: {
-    width: "100%",
-  },
-  button: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingBottom: 20,
-  },
-  containerTeams: {
-    backgroundColor: "#eee",
-    borderWidth: 1,
-    borderRadius: 1,
-    borderColor: "#eee",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    elevation: 5,
-  },
-  txtCenter: {
-    textAlign: "center",
-  },
-  containerButtons: {},
-});
 
 export default App;
