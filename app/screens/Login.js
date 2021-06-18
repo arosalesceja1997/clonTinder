@@ -78,6 +78,16 @@ const RenderLogin = ({ navigation }) => {
           title="Ingresar "
           onPress={() => navigation.navigate("Home")}
         />
+
+        <Button
+          buttonStyle={{
+            backgroundColor: "blue",
+          }}
+          icon={<Icon name="arrow-right" size={20} color="white" />}
+          iconRight
+          title="Detalles "
+          onPress={() => navigation.navigate("Reta")}
+        />
       </View>
     </ScrollView>
   );

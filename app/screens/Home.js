@@ -14,7 +14,7 @@ import { Input, Button, Text, ButtonGroup } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 // Estilos
-import stylesHome from "../assets/styles/Home";
+import { stylesHome, stylesNewHome } from "../assets/styles/Home";
 
 function PerfilScreen({ navigation }) {
   // const {fontsLoader, setfontLoader } = useState(false);
@@ -27,7 +27,7 @@ function PerfilScreen({ navigation }) {
       horario: "",
       fecha: "",
     },
-    onSubmit: (values) => {},
+    onSubmit: (values) => { },
   });
 
   // return (
@@ -69,7 +69,7 @@ const RenderCreateMatch = () => {
       horario: "",
       fecha: "",
     },
-    onSubmit: (values) => {},
+    onSubmit: (values) => { },
   });
 
   const [text, setText] = React.useState(null);
@@ -156,7 +156,7 @@ const RenderCreateTeam = () => {
       horario: "",
       fecha: "",
     },
-    onSubmit: (values) => {},
+    onSubmit: (values) => { },
   });
 
   const [text, setText] = React.useState(null);
@@ -305,7 +305,7 @@ const RenderEditAccount = () => {
   );
 };
 
-const App = () => {
+const App1 = () => {
   const [button, setButton] = React.useState(0);
   const buttons = ["Crear partido", "Crear equipo", "Crear cancha", "Editar"];
 
@@ -328,6 +328,82 @@ const App = () => {
       ) : (
         <Text>Pagina 4</Text>
       )}
+    </React.Fragment>
+  );
+};
+
+const RenderCardsReta = () => { };
+
+const App = ({ navigation }) => {
+  const [button, setButton] = React.useState(0);
+  const buttons = ["Crear partido", "Crear equipo", "Crear cancha", "Editar"];
+  var date = new Date().getDate();
+  var month = new Date().getMonth() + 1;
+  var year = new Date().getFullYear();
+  let fecha = date + "-" + month + "-" + year;
+
+  return (
+    <React.Fragment>
+      <ScrollView>
+        <View style={stylesNewHome.container}>
+          <View style={stylesNewHome.HomeSerach}>
+            <View style={stylesNewHome.InputSerach}>
+              <Input
+                placeholder="Buscar"
+                leftIcon={<Icon name="search" size={24} color="gray" />}
+              />
+            </View>
+
+            <View style={stylesNewHome.ButtonSerach}>
+              <Button
+                buttonStyle={{
+                  backgroundColor: "red",
+                }}
+                icon={<Icon name="arrow-right" size={20} color="white" />}
+              />
+            </View>
+          </View>
+          <View
+            style={[
+              stylesNewHome.ContainerReta,
+              stylesNewHome.boxData,
+              stylesNewHome.BoxShadow,
+            ]}
+          >
+            <View style={stylesNewHome.nameReta}>
+              <Text style={{ fontSize: 25 }}>
+                <Image
+                  source={{
+                    uri: "https://image.flaticon.com/icons/png/512/27/27047.png",
+                  }}
+                  style={{ width: 30, height: 30 }}
+                />
+                ???
+              </Text>
+            </View>
+
+            <View style={stylesNewHome.spaces}>
+              <Text style={{ fontSize: 25 }}>#/ Lugares</Text>
+            </View>
+
+            <View style={stylesNewHome.hour}>
+              <Text>{fecha}</Text>
+              <Text>hora</Text>
+            </View>
+
+            <View style={stylesNewHome.son}>
+              <Button
+                buttonStyle={{
+                  backgroundColor: "red",
+                }}
+                icon={<Icon name="arrow-right" size={15} color="white" />}
+                onPress={() => navigation.navigate("Reta")}
+              />
+            </View>
+          </View>
+        </View>
+
+      </ScrollView>
     </React.Fragment>
   );
 };

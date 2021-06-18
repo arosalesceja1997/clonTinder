@@ -8,6 +8,11 @@ import HomeScreen from "../screens/Home";
 import LoginScreen from "../screens/Login";
 import RecoverPasswordScreen from "../screens/RecoverPassword";
 import RegisterScreen from "../screens/Register";
+import DetailChallenges from "../screens/DetailChallenges";
+import Reta from "../screens/Reta";
+import Payment from "../screens/Payment";
+
+
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -50,6 +55,9 @@ function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Recover" component={RecoverPasswordScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen name="Detalles" component={DetailChallenges} />
+        <Stack.Screen name="Reta" component={Reta} />
+        <Stack.Screen name="Pagos" component={Payment} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const stylesHome = StyleSheet.create({
+export const stylesHome = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
@@ -51,16 +51,116 @@ const stylesHome = StyleSheet.create({
   containerButtons: {},
 });
 
-export default stylesHome;
+export const stylesNewHome = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingRight: 10,
+    paddingLeft: 5,
+    paddingTop: 30,
+    backgroundColor: "white",
+    paddingVertical: 20
+  },
+  boxData: {
+    borderRadius: 10,
+    borderWidth: 0.2,
+    borderColor: 'grey',
+  },
+  HomeSerach: {
+    flex: 0,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%'
+  },
+  ButtonSerach: {
+    width: '20%',
+  },
+  InputSerach: {
+    width: '80%',
+    paddingTop: 12
+  },
+  ContainerReta: {
+    flex: 0,
+    flexDirection: 'row',
+    width: '100%',
+    height: 100,
+    position: 'relative',
+  },
+  boxShadow: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.37,
+    shadowRadius: 7.49,
+    elevation: 12,
+  },
+  son: {
+    position: 'absolute',
+    width: 75,
+    height: 25,
+    bottom: 15,
+    right: 10
+  },
+  hour: {
+    position: 'absolute',
+    width: 75,
+    height: 25,
+    bottom: 1,
+    right: 1,
+    top: 1
+  },
+  nameReta: {
+    paddingLeft: 5,
+    position: "absolute",
+    left: 0,
+    top: 1,
+  },
+  spaces: {
+    paddingLeft: 5,
+    position: "absolute",
+    left: 0,
+    top: 50,
+  },
+  DetailsReta: {
+    flex: 0,
+    flexDirection: 'row',
+    alignContent: 'center',
+    flexWrap: "wrap",
+    width: '100%',
+    marginVertical: 20,
+  },
 
-// function HomeScreen({ navigation }) {
-//   return (
-//     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-//       <Text>Home Screen</Text>
-//       {/* <Button
-//         title="Go to Details"
-//         onPress={() => navigation.navigate("Login")}
-//       /> */}
-//     </View>
-//   );
-// }
+  ContainerEquipo: {
+    width: "100%",
+    marginTop: 30,
+    backgroundColor: 'white',
+  },
+  CardStyle: {
+    width: "100%",
+  },
+  Teams: {
+    marginLeft: -25,
+    width: "117%",
+  },
+  Team: {
+    width: "200%",
+    backgroundColor: 'white',
+  },
+  ButtonWatch: {
+    width: "50%",
+    justifyContent: "center",
+    marginLeft: "26%",
+    marginTop: 20
+  },
+  Cost: {
+    width: "75%",
+  },
+  CostData: {
+  },
+});
+
+// export default stylesHome;
