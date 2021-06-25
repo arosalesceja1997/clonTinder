@@ -1,10 +1,11 @@
-import React, { useState, Component, createRef } from "react";
+import React, { useState, Component, createRef} from "react";
 import {
   TextInput,
   View,
   TouchableOpacity,
   ScrollView,
   FlatList,
+  Alert
 } from "react-native";
 import { Input, Button, Text, Avatar } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -15,7 +16,8 @@ import stylesLogin from "../assets/styles/Login";
 const RenderLogin = ({ navigation }) => {
   const [text, setText] = useState(null);
   const [pass, setPass] = useState(null);
-
+  console.log(text);
+  console.log(pass)
   return (
     <ScrollView>
       <View style={stylesLogin.container}>
@@ -33,7 +35,6 @@ const RenderLogin = ({ navigation }) => {
             placeholder="Correo"
             leftIcon={<Icon name="user" size={24} color="#339abf" />}
             onChangeText={(text) => setText(text)}
-            defaultValue={text}
           />
         </View>
 
@@ -41,8 +42,7 @@ const RenderLogin = ({ navigation }) => {
           <Input
             placeholder="Contraseña"
             leftIcon={<Icon name="lock" size={24} color="#339abf" />}
-            onChangeText={(text) => setText(text)}
-            defaultValue={text}
+            onChangeText={(pass) => setPass(pass)}
             secureTextEntry={true}
           />
         </View>
@@ -76,7 +76,9 @@ const RenderLogin = ({ navigation }) => {
           icon={<Icon name="arrow-right" size={20} color="white" />}
           iconRight
           title="Ingresar "
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => text === "MarcoGarma" && pass === "retasfutbol" ? navigation.navigate("Home") : Alert.alert('OOPS!', 'Revisa muy bien los campos', [
+            {text: 'Entendido', onPress: () => console.log('entendió')}
+          ])}
         />
       </View>
     </ScrollView>
@@ -86,7 +88,7 @@ const RenderLogin = ({ navigation }) => {
 function Login({ navigation }) {
   return (
     <View style={stylesLogin.container}>
-      <RenderLogin navigation={navigation} />
+        <RenderLogin navigation={navigation} />
     </View>
   );
 }
