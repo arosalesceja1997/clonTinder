@@ -378,17 +378,17 @@ const App = ({ navigation }) => {
                   }}
                   style={{ width: 30, height: 30 }}
                 />
-                ???
+                Soccer Park 7
               </Text>
             </View>
 
             <View style={stylesNewHome.spaces}>
-              <Text style={{ fontSize: 25 }}>#/ Lugares</Text>
+              <Text style={{ fontSize: 25 }}>2/ Zapopan</Text>
             </View>
 
             <View style={stylesNewHome.hour}>
               <Text>{fecha}</Text>
-              <Text>hora</Text>
+              <Text>18:05</Text>
             </View>
 
             <View style={stylesNewHome.son}>
@@ -401,6 +401,171 @@ const App = ({ navigation }) => {
               />
             </View>
           </View>
+
+          {/*Segunda cancha */}
+
+          <View
+            style={[
+              stylesNewHome.ContainerReta,
+              stylesNewHome.boxData,
+              stylesNewHome.BoxShadow,
+            ]}
+          >
+            <View style={stylesNewHome.nameReta}>
+              <Text style={{ fontSize: 24 }}>
+                <Image
+                  source={{
+                    uri: "https://image.flaticon.com/icons/png/512/27/27047.png",
+                  }}
+                  style={{ width: 30, height: 30 }}
+                />
+                Cancha Lázaro Cardenas
+              </Text>
+            </View>
+
+            <View style={stylesNewHome.spaces}>
+              <Text style={{ fontSize: 25 }}>7/ Guadalajara</Text>
+            </View>
+
+            <View style={stylesNewHome.hour}>
+              <Text>{fecha}</Text>
+              <Text>18:05</Text>
+            </View>
+
+            <View style={stylesNewHome.son}>
+              <Button
+                buttonStyle={{
+                  backgroundColor: "red",
+                }}
+                icon={<Icon name="arrow-right" size={15} color="white" />}
+                onPress={() => navigation.navigate("Reta")}
+              />
+            </View>
+          </View>
+
+              {/* TERCERA CANCHA*/}
+
+              <View
+            style={[
+              stylesNewHome.ContainerReta,
+              stylesNewHome.boxData,
+              stylesNewHome.BoxShadow,
+            ]}
+          >
+            <View style={stylesNewHome.nameReta}>
+              <Text style={{ fontSize: 25 }}>
+                <Image
+                  source={{
+                    uri: "https://image.flaticon.com/icons/png/512/27/27047.png",
+                  }}
+                  style={{ width: 30, height: 30 }}
+                />
+                Cancha rapido alco
+              </Text>
+            </View>
+
+            <View style={stylesNewHome.spaces}>
+              <Text style={{ fontSize: 25 }}>4/ Guadalajara</Text>
+            </View>
+
+            <View style={stylesNewHome.hour}>
+              <Text>{fecha}</Text>
+              <Text>20:05</Text>
+            </View>
+
+            <View style={stylesNewHome.son}>
+              <Button
+                buttonStyle={{
+                  backgroundColor: "red",
+                }}
+                icon={<Icon name="arrow-right" size={15} color="white" />}
+                onPress={() => navigation.navigate("Reta")}
+              />
+            </View>
+          </View>
+
+          {/* cUARTA CANCHA*/}
+          <View
+            style={[
+              stylesNewHome.ContainerReta,
+              stylesNewHome.boxData,
+              stylesNewHome.BoxShadow,
+            ]}
+          >
+            <View style={stylesNewHome.nameReta}>
+              <Text style={{ fontSize: 25 }}>
+                <Image
+                  source={{
+                    uri: "https://image.flaticon.com/icons/png/512/27/27047.png",
+                  }}
+                  style={{ width: 30, height: 30 }}
+                />
+                Canchas Fútbol Rex
+              </Text>
+            </View>
+
+            <View style={stylesNewHome.spaces}>
+              <Text style={{ fontSize: 25 }}>3/ Guadalajara</Text>
+            </View>
+
+            <View style={stylesNewHome.hour}>
+              <Text>{fecha}</Text>
+              <Text>21:00</Text>
+            </View>
+
+            <View style={stylesNewHome.son}>
+              <Button
+                buttonStyle={{
+                  backgroundColor: "red",
+                }}
+                icon={<Icon name="arrow-right" size={15} color="white" />}
+                onPress={() => navigation.navigate("Reta")}
+              />
+            </View>
+          </View>
+
+          {/* Quinta */}
+
+          <View
+            style={[
+              stylesNewHome.ContainerReta,
+              stylesNewHome.boxData,
+              stylesNewHome.BoxShadow,
+            ]}
+          >
+            <View style={stylesNewHome.nameReta}>
+              <Text style={{ fontSize: 25 }}>
+                <Image
+                  source={{
+                    uri: "https://image.flaticon.com/icons/png/512/27/27047.png",
+                  }}
+                  style={{ width: 30, height: 30 }}
+                />
+                Goal Factory
+              </Text>
+            </View>
+
+            <View style={stylesNewHome.spaces}>
+              <Text style={{ fontSize: 25 }}>3/ Zapopan</Text>
+            </View>
+
+            <View style={stylesNewHome.hour}>
+              <Text>{fecha}</Text>
+              <Text>20:00</Text>
+            </View>
+
+            <View style={stylesNewHome.son}>
+              <Button
+                buttonStyle={{
+                  backgroundColor: "red",
+                }}
+                icon={<Icon name="arrow-right" size={15} color="white" />}
+                onPress={() => navigation.navigate("Reta")}
+              />
+            </View>
+          </View>
+
+
         </View>
 
       </ScrollView>
