@@ -9,9 +9,9 @@ import {
   Image,
 } from "react-native";
 import { Formik, useFormik } from "formik";
-import { Form, Item, Label, InputUI, ButtonUI, Picker } from "native-base";
 import { Input, Button, Text, ButtonGroup } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import axios from 'react-native-axios'
 
 // Estilos
 import { stylesHome, stylesNewHome } from "../assets/styles/Home";
@@ -332,7 +332,72 @@ const App1 = () => {
   );
 };
 
-const RenderCardsReta = () => { };
+const RenderCardsReta = ({ response }) => {
+  return (
+    <View
+      style={[
+        stylesNewHome.ContainerReta,
+        stylesNewHome.boxData,
+        stylesNewHome.BoxShadow,
+      ]}
+    >
+      <View style={stylesNewHome.nameReta}>
+        <Text style={{ fontSize: 25 }}>
+          <Image
+            source={{
+              uri: "https://image.flaticon.com/icons/png/512/27/27047.png",
+            }}
+            style={{ width: 30, height: 30 }}
+          />
+          {response.description}
+        </Text>
+      </View>
+
+      <View style={stylesNewHome.spaces}>
+        <Text style={{ fontSize: 25 }}>12/12</Text>
+      </View>
+
+      <View style={stylesNewHome.hour}>
+        <Text>{response.date}</Text>
+        <Text>{response.hour}</Text>
+      </View>
+
+      <View style={stylesNewHome.son}>
+        <Button
+          buttonStyle={{
+            backgroundColor: "red",
+          }}
+          icon={<Icon name="arrow-right" size={15} color="white" />}
+          onPress={() => navigation.navigate("Reta")}
+        />
+      </View>
+    </View>
+  )
+};
+
+const ConsumerApi = () => {
+  const [data, setData] = React.useState([]);
+
+  React.useEffect(() => {
+    // Actualiza el título del documento usando la API del navegador
+    axios.get('http://192.168.0.22:19001/machts')
+      .then(function (response) {
+        console.log(response.data);
+        setData(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
+
+  return (
+    <React.Fragment>
+      {data.map((res) => {
+        return <RenderCardsReta response={res}></RenderCardsReta>
+      })}
+    </React.Fragment>
+  );
+}
 
 const App = ({ navigation }) => {
   const [button, setButton] = React.useState(0);
@@ -341,6 +406,9 @@ const App = ({ navigation }) => {
   var month = new Date().getMonth() + 1;
   var year = new Date().getFullYear();
   let fecha = date + "-" + month + "-" + year;
+  let response = {
+    name: 'Cancha 1'
+  }
 
   return (
     <React.Fragment>
@@ -363,48 +431,14 @@ const App = ({ navigation }) => {
               />
             </View>
           </View>
-          <View
-            style={[
-              stylesNewHome.ContainerReta,
-              stylesNewHome.boxData,
-              stylesNewHome.BoxShadow,
-            ]}
-          >
-            <View style={stylesNewHome.nameReta}>
-              <Text style={{ fontSize: 25 }}>
-                <Image
-                  source={{
-                    uri: "https://image.flaticon.com/icons/png/512/27/27047.png",
-                  }}
-                  style={{ width: 30, height: 30 }}
-                />
-                Soccer Park 7
-              </Text>
-            </View>
 
-            <View style={stylesNewHome.spaces}>
-              <Text style={{ fontSize: 25 }}>2/ Zapopan</Text>
-            </View>
+          {/* Aqui inicia la reta */}
 
-            <View style={stylesNewHome.hour}>
-              <Text>{fecha}</Text>
-              <Text>18:05</Text>
-            </View>
-
-            <View style={stylesNewHome.son}>
-              <Button
-                buttonStyle={{
-                  backgroundColor: "red",
-                }}
-                icon={<Icon name="arrow-right" size={15} color="white" />}
-                onPress={() => navigation.navigate("Reta")}
-              />
-            </View>
-          </View>
-
+          {/* <RenderCardsReta response={response}></RenderCardsReta> */}
+          <ConsumerApi></ConsumerApi>
           {/*Segunda cancha */}
 
-          <View
+          {/* <View
             style={[
               stylesNewHome.ContainerReta,
               stylesNewHome.boxData,
@@ -441,11 +475,11 @@ const App = ({ navigation }) => {
                 onPress={() => navigation.navigate("Reta")}
               />
             </View>
-          </View>
+          </View> */}
 
-              {/* TERCERA CANCHA*/}
+          {/* TERCERA CANCHA*/}
 
-              <View
+          {/* <View
             style={[
               stylesNewHome.ContainerReta,
               stylesNewHome.boxData,
@@ -482,10 +516,10 @@ const App = ({ navigation }) => {
                 onPress={() => navigation.navigate("Reta")}
               />
             </View>
-          </View>
+          </View> */}
 
           {/* cUARTA CANCHA*/}
-          <View
+          {/* <View
             style={[
               stylesNewHome.ContainerReta,
               stylesNewHome.boxData,
@@ -522,11 +556,11 @@ const App = ({ navigation }) => {
                 onPress={() => navigation.navigate("Reta")}
               />
             </View>
-          </View>
+          </View> */}
 
           {/* Quinta */}
 
-          <View
+          {/* <View
             style={[
               stylesNewHome.ContainerReta,
               stylesNewHome.boxData,
@@ -563,7 +597,7 @@ const App = ({ navigation }) => {
                 onPress={() => navigation.navigate("Reta")}
               />
             </View>
-          </View>
+          </View> */}
 
 
         </View>

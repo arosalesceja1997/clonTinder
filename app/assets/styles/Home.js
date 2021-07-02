@@ -87,6 +87,7 @@ export const stylesNewHome = StyleSheet.create({
     width: '100%',
     height: 100,
     position: 'relative',
+    marginVertical: 5,
   },
   boxShadow: {
     shadowColor: "#000",
